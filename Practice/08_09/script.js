@@ -13,6 +13,25 @@
  *  - Returns <figure> element to where function is called
  */
 
+const createImage = (img, alt) => {
+  const figure = document.createElement("figure");
+  figure.innerHTML = `<img src="${img}" alt="${alt}">`;
+
+  const figcaption = document.createElement("figcaption");
+  figcaption.innerHTML = alt;
+  figure.append(figcaption);
+
+  document.querySelector("main").append(figure);
+};
+
+const createArticle = (someContent) => {
+  const article = document.createElement("article");
+  article.innerHTML = someContent;
+  document.querySelector("main").append(article);
+
+  createImage(frogpack.image, frogpack.name);
+};
+
 const frogpack = {
   name: "Frog Backpack",
   volume: 8,
@@ -57,3 +76,5 @@ const content = `
       }</span></li>
     </ul>  
 `;
+
+createArticle(content);
